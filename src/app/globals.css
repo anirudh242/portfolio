@@ -1,19 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;600&display=swap');
 @tailwind utilities;
 
 /* Base styles for the dark theme */
 body {
   background-color: #000411;
   color: white;
+  font-family: 'Inter', sans-serif; /* body font */
+  margin: 0;
+  padding: 0;
 }
 
 section {
-  display: block;
   min-height: 100vh;
   display: grid;
-  place-items: center;
+  place-items: center; /* vertical + horizontal centering */
+  text-align: center; /* center multi-line text */
 }
 
-/* --- Rocket styles --- */
+/* Headings use Montserrat for a modern, professional look */
+h1 {
+  font-family: 'Inter', sans-serif; /* use Inter */
+  font-weight: 700; /* bold */
+  font-size: clamp(3rem, 8vw, 100px); /* min size, scaling, max size */
+  letter-spacing: 0.02em; /* subtle spacing */
+  line-height: 1.1; /* tighter spacing for large text */
+}
+
+h2,
+h3,
+h4 {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em; /* subtle spacing */
+  margin: 0; /* remove default spacing */
+}
+
+/* Rocket styles */
 #rocket {
   width: 40px;
   height: 125px;
@@ -137,7 +158,7 @@ section {
   bottom: 0 !important;
 }
 
-/* --- Sky with stars --- */
+/* Sky canvas styling */
 #sky {
   min-height: 200vh;
   width: 100%;
@@ -146,47 +167,12 @@ section {
   left: 0;
   z-index: -1;
   background-color: #000411;
-  background-image:
-    /* nebula */ radial-gradient(
+  /* Nebula-style radial gradients */
+  background-image: radial-gradient(
       ellipse at 80% 20%,
       #1c274c 0%,
       transparent 50%
     ),
     radial-gradient(ellipse at 20% 30%, #2a3a6b 0%, transparent 40%),
-    radial-gradient(circle at 50% 90%, #0d1a3b 0%, transparent 30%),
-    /* stars */ radial-gradient(1px 1px at 10% 20%, #fff 100%, transparent 0),
-    radial-gradient(1px 1px at 30% 50%, #fff 100%, transparent 0),
-    radial-gradient(1px 1px at 70% 80%, #fff 100%, transparent 0),
-    radial-gradient(1px 1px at 90% 30%, #fff 100%, transparent 0),
-    radial-gradient(1px 1px at 50% 10%, #fff 100%, transparent 0);
-  background-size: cover;
-}
-
-/* Optional: twinkle animation for stars */
-#sky::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(1px 1px, #fff 100%, transparent 0) 10% 20%,
-    radial-gradient(1px 1px, #fff 100%, transparent 0) 30% 50%,
-    radial-gradient(1px 1px, #fff 100%, transparent 0) 70% 80%,
-    radial-gradient(1px 1px, #fff 100%, transparent 0) 90% 30%,
-    radial-gradient(1px 1px, #fff 100%, transparent 0) 50% 10%;
-  background-size: cover;
-  animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.5;
-  }
+    radial-gradient(circle at 50% 90%, #0d1a3b 0%, transparent 30%);
 }
