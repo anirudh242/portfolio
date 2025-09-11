@@ -13,7 +13,7 @@ export default function Home() {
 
   // The main content still fades in after the rocket is gone.
   // This timing remains good.
-  const contentOpacity = useTransform(scrollYProgress, [0.5, 0.65], [0, 1]);
+  const contentOpacity = useTransform(scrollYProgress, [0.25, 0.35], [0, 1]);
 
   return (
     <>
